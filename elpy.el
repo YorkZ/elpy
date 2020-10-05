@@ -3032,8 +3032,7 @@ and return the list."
              for pytel-cand = (replace-regexp-in-string "^.*\\." "" pytel-cand)
              for pytel-cand = (string-trim pytel-cand)
              unless (member pytel-cand candidate-names)
-               do (push (list (cons 'name pytel-cand)) candidates)
-             ))
+             collect (list (cons 'name pytel-cand)) into candidates))
           candidates)))))
 
 (defun elpy-company-backend (command &optional arg &rest ignored)
